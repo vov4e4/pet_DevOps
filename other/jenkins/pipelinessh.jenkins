@@ -1,0 +1,25 @@
+ pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('ssh') {
+            steps {
+            sh '''#!/bin/bash
+                ssh root@192.168.0.106
+                 '''
+            }
+        }
+        stage('ip a') {
+            steps {
+                 sh '''#!/bin/bash
+                ip a
+                 '''
+            }
+        }
+    }
+}

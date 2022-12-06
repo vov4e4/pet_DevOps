@@ -1,0 +1,25 @@
+ pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('hostname') {
+            steps {
+                 sh '''#!/bin/bash
+                         hostname
+                 '''
+            }
+        }
+        stage('ip a') {
+            steps {
+                 sh '''#!/bin/bash
+                         ip a
+                 '''
+            }
+        }
+    }
+}
