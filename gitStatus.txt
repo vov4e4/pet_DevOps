@@ -9,6 +9,8 @@ Changes not staged for commit:
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	other/
+	other/Dockerfile
+	other/index.py
+	other/main.yml
 
 no changes added to commit (use "git add" and/or "git commit -a")
