@@ -5,6 +5,6 @@ and start simply command with workdir
 
 docker build -t apache_image:1.0 .
 
-them go to localhost:80
+them go to localhost:1234
 
 You are Welcome to APACHE2

@@ -4,5 +4,5 @@ RUN apt update
 RUN apt-get install -y apache2
 RUN apt-get install -y apache2-utils
 RUN apt clean
-EXPOSE 80
+EXPOSE 1234
 CMD ["apache2ctl", "-D", "FOREGROUND"]
