@@ -1,0 +1,92 @@
+hostnamectl  -+++   D14 192.168.0.14
+                    Sweb 192.168.0.123
+                    Sweb1 192.168.0.20
+                    Sweb2 192.168.0.169
+                    Sweb3 192.168.0.143
+                    docker236
+     PC
+              centos 192.168.0.157
+              centos1 192.168.0.221
+              centos3 192.168.0.176
+
+              LS 192.168.0.49
+              LS1 192.168.0.139
+              LS2 192.168.0.69
+              LS3 192.168.0.135
+
+
+LOCALHOST
+
+sudo apt-get update && apt-get upgrade -y
+
+sudo apt-get install nmap      -INSTALL app Nmap
+ nmap -v -sP 192.168.0.1/24     -show free ip addr
+ nmap -v -sP 192.168.1.3/24 | grep down
+ arp -a                -show occupied ip addr  +
+
+ sudo netstat -tvlpn   -active IC (servers)
+ netstat -tlpna        -слухати порти (tylpan)(sudo apt install net-tools)
+ netstat -na           -show allowed connection
+ ss -tnlp              -show listening hosts
+
+ traceroute -F google.com
+
+
+service --status-all
+   sudo systemctl enable service-name
+   sudo systemctl disable service_name
+   sudo systemctl start service_name
+   sudo systemctl disable service-name
+
+env - вивод переменних среди
+  ip route
+  traceroute 8.8.8.8
+  route 
+  routel
+
+sudo apt install curl   -show publock ip
+ifconfig         -show ip
+ip add           -show ip 
+hostname -I      -SHOW ONLY IP
+ip r             -show ip
+ip -c a          -shiw ip cilor
+ip route show 
+
+  lsb_release -d   -version linux
+  uname            -version OS
+  hostname         -username
+  uname -r         -version cernal
+  uname -a
+
+  HARD
+
+sudo lshw             -all info server
+lscpu
+lsblk                 -memory
+lsblk -a
+free -m               -ram
+du -sh                -memory RAM
+lspci 
+lspci -t
+
+sudo apt clean cache 
+sudo apt autoclean 
+sudo apt autoremove
+
+  SOFT
+
+hostnamectl           -+++
+cat /etc/os-release
+lsb_release -a
+uname -r
+uname -mrs 
+uname -a 
+
+
+
+
+
+ubuntu App Store
+ 
+sudo apt update
+sudo apt install gnome-software
