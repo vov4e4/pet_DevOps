@@ -1,0 +1,47 @@
+hostname 
+hostname  -I
+sudo vi /etc/hostname          (change name)
+sudo vi /etc/hosts            (change 2 line)
+
+sudo vim /etc/network/interfaces     (1 variant)
+
+auto enp0s17
+iface enp0s17 inet static
+    address 20.20.20.20
+    netmask 255.0.0.0
+    gateway 20.20.20.1
+    dns-nameserver 8.8.8.8
+
+sudo vi /etc/netplan/config.yaml   #(create)(2 variant working)
+
+network:
+ version: 2
+ renderer: NetworkManager
+ ethernets:
+  enp0s3:
+   addresses: [192.168.0.110/24]
+   nameservers:
+    addresses: [8.8.8.8, 8.8.4.4, 1.1.1.1]
+   routes:
+    - to: default
+      via: 192.168.0.1
+
+sudo vi /etc/netplan/00-installer-config.yaml   (3 variant working)
+  # This is the network config written by 'subiquity'
+network:
+  ethernets:
+    enp0s3:
+     addresses: [192.168.0.141/24]
+     gateway4: 192.168.1.1
+     nameservers:
+      addresses: [192.168.0.1, 4.2.2.2, 8.8.8.8]
+  version: 2
+
+
+
+netplan apply
+systemctl restart NetworkManager
+
+
+$ systemctl stop dhcpcd dhcpd
+$ systemctl disable dhcpcd dhcpd

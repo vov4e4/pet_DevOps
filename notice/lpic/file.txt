@@ -1,0 +1,82 @@
+          BASIS COMMANDS 
+$ - звертаємось до переменной
+; -  more commands,
+* - all formats,all letter
+? - random simbols
+! - NO
+[ac] - a or c.
+[a-c] - a,b,c.
+man -ls - manual commands
+u-user, g-groupe, o-other, a-all.
+-add, --minuse    - +-
+PWD- місце знахдження prived worcked directiry
+cd /home/vova/Desctop -browse
+cd . here catalog
+cd .. next catalog
+ls - view file in directory
+ls * - view full content
+ls *.* - view full content (file.formate)
+ls ???.???  -  view name files (xxx.xxx)(cat.txt)
+ls ?at.txt - view ?at.txt
+ls [ab]*  - view name file -a, -b.
+ls [!ab]  - file not name -a -b
+df - info memory storage
+df -h /dev/sda4  - info memory drive
+mv  - rename
+mv dir/ newdir  -  rename directory
+mkdir -create directory
+rmdir -remove directory
+rm -rf -remove (recyrsive fors)
+rmdir (-rf) -remove directory 
+head - view file onli start text
+tail - view file onli last text
+touch - create file
+touch {6,7,8}.txt - create 6,7,8.txt file.
+cp - copy file (test.txt copy copyfile.txt)
+mv - move file,rename file(mv text.txt cd/folder/)(mv file.txt test.txt)
+file - view content file
+file* - all content files
+less file.txt   - open file in vim
+cat - view file in console 
+echo - view text in consile
+echo -text message >xxx.txt xxxxxtextxxxx
+echo "xxx" > folder/file.txt
+>test.txt -create file (in directory)
+touch - refrech time correct file
+cp file_to_copy.txt new_file.txt
+cp -r dir_to_copy/ new_copy_dir/
+rm file_to_copy.txt
+rm -r dir_to_remove/
+rm -rf dir_with_content_to_remove/
+mv source_file destination_folder/
+mv command_list.txt commands/
+mkdir images/
+touch new_file_name
+chmod +x script
+
+
+    RAR ZIP
+tar -cf arhive_tar.tar folder/  - archive folder (archive file tar.tar)
+zip -r arhive_zip.zip folder
+unzip arhive_zip.zip
+gzip file.txt - 
+gunzip file.txt - 
+bzip2 file.txt - compres archive
+bunzip2 file.txt
+xz - archivator  +-
+unxz -
+tar cvf archive.tar folder - archive folder
+tar cvfz archive.tar.gz folder - archive Gzip helped
+tar xvf archive.tar folder - unzip folder
+man ascii - encryption text
+
+   FIND
+find . - seach in here catalog
+find . -name "test"(tes*)  - search in direcrory name files TEST
+find . -name "[A-Z]*.*" - serarch big Letter name and random formats
+find . -name +5mb - find file many 5 megabites
+find . -type d - find type DIRECTORY
+find . -atime +5 - search files in  access meny 5 days
+find . -ctime +5 - find change file before 5 days
+find . -name "*.txt" - find files in directory .txt
+find . -name "*.txt" | xargs rm -f - delete all txt files

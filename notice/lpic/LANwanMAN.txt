@@ -1,0 +1,13 @@
+Local Area Network LAN
+WIDE AREA NETWORC WAN ...GLOBAL
+METROPOLITAN AREA NETWORK. .... CITYIS 
+
+Типи передачі трафіка 
+
+Unicast - взаємодія 2х пристроїв в сеті.
+
+Broadcast - сервер передає дані усім пристроям в сети
+
+Multicast - трафік для групи.
+
+MAC - media access control (48bit) fisical address

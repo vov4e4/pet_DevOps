@@ -1,0 +1,41 @@
+#https://linuxopsys.com/topics/ansible-playbook-to-install-apache
+
+sftp://pi@192.168.0.100 -connect with explourer
+
+#simply mod for getting root
+# commands
+ #ansible all -m shell -a "apt update" -b
+ #
+
+[all:vars]
+ansible_user=vova
+ansible_become=yes
+ansible_become_method=sudo
+ansible_become_pass=0905
+ansible_python_interpreter=/usr/bin/python3
+
+[servers]
+Sweb ansible_host=192.168.0.42      ansible_user=vova
+Sweb1 ansible_host=192.168.0.190    ansible_user=vova
+Sweb2 ansible_host=192.168.0.241    ansible_user=vova
+
+#SSH  only 22 port
+
+ #service ssh status
+ #service ssh start
+ #(cat /etc/passwdl)show users
+ #uname -a
+ #w     -show users 
+ #cd /etc/ssh/ssh_config - confige file
+
+ #(StrictModes no)   
+ #(AuthorizedKeysFile .ssh/authorizet_keysl)
+ #(PubKeyAuthentication yesl)
+ #Service ssh restart
+
+USER ADD
+
+ useradd -m -b /bin/bash/vova.    - add user.  -m  home directory
+ passwd vova 
+ #xxxx
+ #xxxx

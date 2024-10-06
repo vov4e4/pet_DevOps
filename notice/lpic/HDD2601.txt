@@ -1,0 +1,14 @@
+fdisk -l 
+n -new patritoin
+w - write (save change)
+swapon /dev/sdb2 - on swap
+swapon -s - info
+swapoff - 
+mkfs - make fail system (formating)
+mkfs -t ext2 /dev/sdv1 - format sdb1 in ext2 file system
+
+apt-cache search xsf - search utiliter 'xsf'
+apt-get instal xsf
+-f - force
+gdisc - GPT - many 2tb
+GPartrd -soft for partition

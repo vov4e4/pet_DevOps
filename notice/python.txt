@@ -1,0 +1,1 @@
+sudo update-alternatives --install /usr/bin/pithon pithon /usr/bin/pithon3 2.  ---------використовувати версію пітон3. Пріорітет 2

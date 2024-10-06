@@ -1,0 +1,9 @@
+LINUX 
+  systemctl status,enable,disable ufw
+  sudo firewall-cmd --list-services
+  sudo firewall-cmd --list-ports
+  sudo ufw allow ssh--no firewall for ssh
+  
+
+CENTOS
+  systemctl status,enable,disable firewalld

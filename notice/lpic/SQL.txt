@@ -1,0 +1,60 @@
+
+
+sudo apt-get install mysql-server
+mysql -u root - open sql
+CREATE DATABASE cars; - ;close name base
+USE cars;
+CREATE TABLE new (brand VARCHAR(10),model VERCHAR(10), year YEAR)
+CREATE TABLE used (brand VARCHAR(10),model VERCHAR(10), year YEAR)
+ SHOW TABLES
+ DISCRIBE - VIEW TABLES
+ mysql --local-infile -u root - on import date in table sql
+ USE cars;
+ LOAD DATA LOCAL INFILE "file.txt" INTO TABLE new; - inport is file.txt on sql table 	
+LOAD DATA LOCAL INFILE "file.txt" INTO TABLE used; - uther base
+SELECT * FROM new;
+SELECT * FROM used; - view table
+INSERT INTO new (brand, model, year) VALUES ('Deawoo','Nexia','2015');-  add text in table
+DELETE FROM new WHERE model='Nexia'; - delete line base
+SELECT * FROM new - select 
+SELECT * FROM new WHERE brand="KIA" selekt in table BRAND
+SELECT * FROM used
+SELECT model FROM new - 
+UPDATE new SET model='KUGA' WHERE model='FOCUS'; - change fokus on KUGA
+SELECT * FROM new JOIN used ON new.brand = wsed.brand - злиття таблиць бу і нові
+SELECT * FROM new ORDER BY brand;- view by brand
+SELECT * FROM new ORDER BY price; - view by price
+SELECT * FROM new GROUP BY brand - group by brand
+
+
+apt install mysql-server
+mysql -u root
+USE parts
+CREATE TABLE electronics (brand VARCHAR(10), model VARCHAR(10), year YEAR, price INT);
+CREATE TABLE electronics (brand VARCHAR(10), model VARCHAR(10), year YEAR, price INT);
+show tables;
+DISCRIBE electronics;
+DISCRIBE shassi;
+(create txt files)
+mysql --local-infile=1 -u root  -start connect txt files;
+USE parts;
+LOAD DATA LOCAL INFILE "electronics.txt" INTO TABLE electronics;
+SELECT * FROM electronics;
+SELECT * FROM shassi;
+INSERT INTO electronics (brand, model, year) VALUES ('servo','HG','2022');   -add values in table
+DELETE FROM electronics WHERE model='HG';
+SELECT model FROM electronics;
+SELECT * FROM electronics WHERE brand="HG";
+SELECT * FROM electronics WHERE brand="HG" AND year="2022";
+SELECT * FROM electronics
+UPDATE electronics SET model='HG' WHERE model='FUTABA';  -change HG on FUTABA
+SELECT * FROM electronics JOIN used ON new.brand = used.brand;  - обєднання таблиць!
+exit;
+
+create user user@'192.168.0.103' identified by '0905';                 -create user and passwd
+grant select,insert,update,delete on car. * to user@'192.168.0.103';   -permissions accses
+flush priveleges;                                                      -previleges ON 
+sudo mysqlshow -u root -p                                              -show databases in terminall.
+sudo mysqlshow -u root -p car                                          -show tables in terminall
+sudo mkdir -p /var/buckup                               -
+sudo mysqldump -u root -p car > /var/backup/car.sql     -bukap car 

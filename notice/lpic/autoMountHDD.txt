@@ -1,0 +1,21 @@
+ sudo mkdir /media/data
+ sudo mount /dev/sdb1 /media/data
+ ls -al /dev/disk/by-uuid/
+ sudo chmod +x /etc/fstab
+ sudo vim /etc/fstab
+
+ /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+/dev/mapper/vgubuntu-root /               ext4    errors=remount-ro 0       1
+# /boot/efi was on /dev/sda1 during installation
+/dev/mapper/vgubuntu-swap_1 none            swap    sw              0       0
+# / was on /dev/sdb1 during installatio
+UUID=dad8e409-1ca3-455d-95d6-69439c87944a /media/data   ext4  errors=remount-ro 0       1
+
+ findmnt --verify
+ ls -al /dev/disk/by-uuid/

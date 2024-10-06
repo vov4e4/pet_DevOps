@@ -1,0 +1,12 @@
+NETWORK
+
+ Apps
+   nmtui - setting network in graphik interfsce
+   nmcli - setting network in commands
+
+ip route
+ip a
+mntui
+dnf install mc wget git net-tools -y
+
+

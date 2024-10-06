@@ -1,0 +1,66 @@
+echo '#!/bin/bash'>myscript.sh ; chmod a+x myscript.sh
+ll | grep myscript.sh 
+
+n1 -eq n2 Повертає справжнє значення, n1якщо n2.
+n1 -ge n2 Повертає справжнє значення, якщо n1більше чи n2.
+n1 -gt n2 Повертає справжнє значення, якщо n1більше n2.
+n1 -le n2 Повертає справжнє значення, якщо n1менше або n2.
+n1 -lt n2 Повертає справжнє значення, якщо n1 менше n2.
+n1 -ne n2 Повертає справжнє значення, а то n1й рівно n2.
+
+-d file Перевіряє, чи існує файл, і чи він є директорією.
+-e file Перевіряє, чи є файл.
+-f file Перевіряє, чи існує файл, і чи є файлом.
+-r file Перевіряє, чи існує файл, і чи він доступний для читання.
+-s file Провіряє, чи існує файл, і чи він порожнім.
+-w file Перевіряє, чи існує файл, і чи він доступний для запису.
+-x file Перевіряє, чи існує файл, і чи він виконуваний.
+file1 -nt file2 Перевіряє, чи новіше file1, ніж file2.
+file1 -ot file2  Перевіряє, чи старше file1, ніж file2.
+-O file Перевіряє, чи існує файл і чи є його власником поточний користувач.
+-G file Перевіряє, чи існує файл і чи відповідає його ідентифікатор групи ідентифікатору групи поточного користувача.
+
+vim /etc/profile - global setting bash
+
+FILE
+
+#!/bin/bash
+
+echo "hello world"
+apt update -y
+apt updrade -y
+ls; pwd; whoami 
+
+FILE.
+
+#@/bin/bash   (show open port in file result)
+
+echo "Enter subnet:"
+read subnet
+
+echo "Enter port:"
+read port
+
+nmap -p $port -sT $subnet -oG res
+
+cat res | grep open >result
+cat result
+
+else
+echo "Enter IP:"
+read IP
+nmap -PE $IP -oN resultip
+cat resultip
+fi
+
+
+
+
+
+
+
+
+
+
+
+

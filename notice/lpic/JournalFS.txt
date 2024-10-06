@@ -1,0 +1,25 @@
+ИСТОЧНИК	ПРИОРИТЕТ	НАЗНАЧЕНИЕ
+
+auth		emergency	file
+cron		alert		console
+kernal		critical	convier
+mail		error		delete system
+user		warning		group users
+deamons 	notice		i.t.d.
+		info
+		debug
+ 
+service syslog restart   -  restart and save change
+logger -p user.warn Please help!  -  (logger utilites) create task!
+
+ 
+sudo service syslog statys  -  rsyslog using
+ 
+
+
+
+
+
+
+
+

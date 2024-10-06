@@ -1,0 +1,40 @@
+sudo dmesg | grep -i bluetooth
+lspci -knn | grep Net -A3; lsusb; dmesg | grep -i blue:
+sudo dmesg -TW    -  diagnostic errors
+systemctl status bluetooth 
+systemctl status bluetooth
+vi /etc/bluetooth/main.conf
+cd /etc/bluetooth
+sudo chmod +r main.conf 
+vi /etc/bluetooth/main.conf
+
+AutoEnable=true
+and replace it with:
+AutoEnable=false
+
+Как загрузить драйверы Bluetooth в Ubuntu?
+Как установить Bluez
+
+sudo apt-get install bluez *
+sudo dnf установить bluez bluez-tools.
+sudo pacman -S bluez bluez-utils.
+sudo apt-get установить blueman.
+sudo zypper установить blueman.
+sudo dnf установить blueman.
+sudo pacman -S blueman.
+sudo systemctl включить bluetooth.service
+
+
+Запустите демон bluetooth. Перейдите в свой терминал и введите: 
+sudo /etc/init.d/bluetooth start.
+Переустановите пакеты. Если это не сработает, перейдите в свой терминал и введите: 
+sudo apt-get purge blueman bluez-utils bluez bluetooth sudo apt-get install blueman bluez-utils bluez bluetooth.
+Как найти драйверы Bluetooth в Linux?
+Как узнать, есть ли на компьютере Linux Bluetooth
+
+Откройте терминал и введите
+ dmesg | grep -i blue '
+ и нажмите Enter. Вы также можете ввести
+  lsusb | grep Bluetooth ',
+   чтобы узнать, есть ли у вас Bluetooth.
+Если вы видите оборудование для возврата, значит у вас есть Bluetooth. Если вы не видите список оборудования, значит, вы его не видите.

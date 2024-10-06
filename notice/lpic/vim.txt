@@ -1,0 +1,90 @@
+vim hello - open vim
+esc. 	:qw  -  exit and save file
+cut 1,2,3,4,5 - cut by sumbols
+expand - convertion TAB in SPACE
+fmt file.txt  -  remote all simbols(example TAB SPACE , . ?)
+fmt -w 5 file.txt  - 5simbols in each line
+join - 
+less
+nl - namber line
+paste  - 
+pr - print - view a4format
+sed - correct view fales (sed -e 's/socks/people/' file txt)
+sort -r file.txt  -  sort -revers text
+split -l 2 file.txt - split file -line (2line)
+split -b 5 file.txt - splite file -bite(5bites)
+tr - translate or delite txt(echo Hello | tr -t A-Z a-z)
+                                             -d (dellete
+                                             -s (join
+unexpand - TAB > 10 SPACE
+expande  - Spece > TAB
+uniq - unic view uniqume info.  
+unic -d - view onli duble info (-c,-u.)
+wc - count simbols
+                        
+                        
+                        vim hello - open vim
+esc. 	qw  -  exit and save file
+cut 1,2,3,4,5 - cut by sumbols
+expand - convertion TAB in SPACE
+fmt file.txt  -  remote all simbols(example TAB SPACE , . ?)
+fmt -w 5 file.txt  - 5simbols in each line
+join - 
+less
+nl - namber line
+paste  - 
+pr - print - view a4format
+sed - correct view fales (sed -e 's/socks/people/' file txt)
+sort -r file.txt  -  sort -revers text
+split -l 2 file.txt - split file -line (2line)
+split -b 5 file.txt - splite file -bite(5bites)
+tr - translate or delite txt(echo Hello | tr -t A-Z a-z)
+                                             -d (dellete
+                                             -s (join
+unexpand - TAB > 10 SPACE
+expande  - Spece > TAB
+uniq - unic view uniqume info.  
+unic -d - view onli duble info (-c,-u.)
+wc - count simbols
+
+                                VI
+                   <apostrophe>       (    -    j    H
+                   <carriage-return>  )    $    k    L
+                   <comma>            [[   %    l    M
+                   <control>-H        ]]   _    n    N
+                   <control>-N        {    ;    t    T
+                   <control>-P        }    ?    w    W
+                   <grave-accent>     ^    b    B
+                   <newline>          +    e    E
+                   <space>            |    f    F
+                   <zero>             /    h    G
+esc shift+z shift+z - exit vi save
+esc SHIFT+S SHIFT=q - not save  and exit
+vi file.txt - open file
+vi _file.txt - create new file
+i - input text
+esc, ctrl+c - command mode
+yy - copy line
+p - past line
+r - exchange letter in simbols
+shft+a - input text end line
+shft+; - q! - mace exit vim
+shft+; - w - mace save file
+x - delete
+4x - delete 4simbols
+dd - delete line
+3dd - delete 3line
+u - OTCATITE
+e - next word
+b - back word
+dw - delate word
+dd - delete line (cut in buffer)
+d$,d<,                                              
+?,/ - search                       
+shift6 - 
+:e! - otkatut
+:w! - sawe change
+:w - newfile.txt
+:q - exit
+                    
+                    

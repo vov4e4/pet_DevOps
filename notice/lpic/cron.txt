@@ -1,0 +1,74 @@
+  CRON 
+
+пріоритет в крона завжди  -allow 
+в іншому софті приорітет  -deny
+sudo vim /etc/cron.deny   -create file cron.deny (write in file user name )
+sudo vim /etc/cron.deny   -create file cron.allow (write in file user name )
+
+/etc/crontab.               -conf file
+/etc/cron.d/anacron         -conf anacron
+/etc$ ls -l | grep cron     -show cron procces (inne sintaxis)
+. /var/spool/cron/crontabs  -user task
+
+    /etc/cron.daily – запуск скриптов один раз в день
+    /etc/cron.hourly – запуск скриптов ежечасно
+    /etc/cron.monthly – запуск скриптов раз в месяц
+    /etc/cron.weekly – запуск скриптов раз в неделю
+
+m  h dom mon dow user command  - mnute, hour, day mons, mons year, day week, command.
+05 15 * * *           -every day 15:05
+05 15 17 2 *          -every 17 febryary in 15:05
+05 15 * * 6           -every saturday in 15:05
+05 15 1 1 1           -every 1.01. in monday 15:05
+05,40 * * * *         -every 5minute and every 40 minute every hours
+*/15 * * * *          -every 15 minute
+05 15 * * 1-5         -in weekend 15:05
+5 0 * * * root apt updat  - update every day in 00:05 min
+
+crontab -l          -task in user
+crontab -e          -show task user
+
+
+  ANACRON
+
+/etc/anacrontab.               -anaconf file
+
+ls -l /var/spool/anacrone      -lod anacron task
+
+day         delay min       id        command           
+1           5           cron.daily    sudo apt update
+7           10          cron.weekly   sudo apt upgrade
+
+AT 
+
+sudo apt-get install AT
+
+atq                 -show task 
+at 17:00            -create task, to start BASHshell script, /bin/sh 
+at> /home/vova/script 
+cntrl+D             -EXID at 
+at now +15 minute
+at 15:00 01/09/2022
+atrm 1              -delete first task 
+/etc/at.allow       -list users
+/etc/at.deny        -list users
+
+  SENDMAIL
+Для отправки почты на сервере дожен быть установлен почтовый-агент.
+ Для теста, я установил на сервер sendmail:
+
+# apt install sendmail -y
+# service sendmail start
+
+sendmail – бесплатный агент для передачи почты, 
+который доступен практически для любой операционной системе
+
+Настроем параметры отправки e-mail в cron-файле. Добавьте в файл следующие строки:
+
+MAILTO="*@gmail.com"
+SHELL=/bin/bash
+HOME=/
+* * * * * echo "Проверка cron"
+MAILTO — укажите свой почтовый ящик
+SHELL — оболочка пользователя
+HOME — путь к файлу cron

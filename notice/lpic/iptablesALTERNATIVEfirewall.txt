@@ -1,0 +1,41 @@
+sudo iptables -vnL
+iptables -S                 -show iptables poute
+
+ufw disable 
+apt install iptables
+apt install iptables-persistent
+
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT      -access input 
+[тільки в актуальному сеансі! після перезагрузки команди небуде]
+зберігаєм файл #sudo iptables-save > /etc/iptables/rules.v4 
+sudo iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT 
+
+sudo iptables -A INPUT -p tcp --dport -j DROP
+sudo iptables -A OUTPUT -p tcp --dport 80 -j DROP
+
+sudo iptables-save > /etc/iptables/rules.v4             -створюєм файл з настройками іптейблс
+у файлі лишаєм тільки ці рядки
+  #
+  *filter
+  :INPUT ACCEPT [61:7577]
+  :FORWARD ACCEPT [0:0]
+  :OUTPUT ACCEPT [43:6204]
+  COMMIT
+  #  
+sudo iptables-restore < etc/iptables/rules.v4
+
+FILE2BAN   - APPS -for protect password, system access.
+ sudo apt install fail2ban
+
+ cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local  - create file jail.local for confiq.!
+
+ systemctl restart fail2ban
+ systemctl status fail2ban
+ systemctl start fail2ban
+ systemctl stop fail2ban
+ fail2ban-client status
+
+
+
+
+

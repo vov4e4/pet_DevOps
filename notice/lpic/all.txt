@@ -1,0 +1,137 @@
+https://ru.wikipedia.org/wiki/
+
+LAMP Stack -linux(operation system) Apache(web server) MySQL(database) PHP(scripting)
+
+multicast - minimalisation traficks (send info groups users or once user) address resend
+broadcast - send all users
+
+ctrl+shift+c      -copy in terminal
+ctrl+shift+v      -paste in terminal
+sudo aptitude safe-upgrade
+sudo apt install ./chrome   -install file in dir
+65535 - max ports 2 in 16 stepin
+arp -a  -mac adress 
+ip route- all ip
+
+
+0.0.0.0:80       -80 listen port
+traceroute 8.8.8.8 -sudo apt install traceroute  :sudo apt install inetutils-traceroute 
+traceroute google.com
+route            -table route
+routel
+ip route 
+netstat -tlpna   -слухати порти (tylpan)(sudo apt install net-tools)
+netstat -na      -show allowed connection
+ss -tnlp         -show listening hosts
+netstat -tnlp
+host -t a        -show ip addr ..site.com..
+ss -tulpen       -analog netstat
+curl http://localhost:9876  -слухаєм порт 9876
+start, stop,     -статут команди тільки в даному сеансі!
+enable, disable  -статус програми енабле чи дісабле лишається після перезагрузки чи загрузки системи
+systemctl status apache2  -  status apache
+chmod chown      -differen?
+ifconfig         -show ip
+ip add           -show ip 
+
+hostname -I      -SHOW ONLY IP
+
+ip r             -show ip
+ip -c a          -shiw ip cilor
+sudo service apache2 stop  -stop apache2
+netstat htop vim/
+cat /proc/cpuinfo | grep cores  - cpu info
+lsb_release -d   -version linux
+uname            -version OS
+hostname         -username
+uname -r         -version cernal
+uname -a
+df              -free memory
+df -h /dev/sdb1
+ps aux | chrome -all procces | chrome
+du -sh          -memory all system
+du -sh Desktop/
+ls ; cd /media/data/vova/ ; ls ; cd ~ ; ip -c a
+sudo mount /dev/sda4 /home/vova  -mount sda4 to home/vova
+find ./ -name "*.c | xargs grep -i "apple"          -find/all compukter/...c | sort apple
+ls *.sh            show file ...sh
+ls > top.txt        -output ls in file top.txt
+pstree
+jobs - task
+fg 1 - jobs 1 procces. forground (cancel ctrl+z)
+bg 1 - jobs 1 procces. backround.
+ps - process
+
+ls --color=auto
+alias ls="ls --color=auto"
+
+shutdown now
+shutdown 20:40
+shutdown -c
+echo "Hey $USER"
+cat long_text_file.txt
+
+PORTS
+   (out)DST Port:80         -http 80
+   (in) SRC Port:63139      -smtp 25
+                            -ftp 21
+
+sudo apt clean cache 
+sudo apt autoclean 
+sudo apt autoremove 
+passwd  -  shange password for user
+wget  - comand for downloding file(wget url)
+
+
+wc files.txt = wc < file.txt - view line,words,simbols( 1  5  30)
+ls > list.txt - list on file list.txt in directory
+ls test > result 2> error.txt - esc errors file test, errors in file wrror.txt
+ls | grep r - view sinbol r
+ls | tee output.txt - view ls in file output.txt
+sleep 1000 - pc sleep 1000second. >ctrl+c cancel command
+sleep 1000 & - sleep fon 
+ps alx - all list execute
+ps aux - proces all user -x(multiuser)
+ps aux | grep test - view proces "test"
+ps -eo user,pid,pcpu,nice,comm - process, everyting, output, user, idprocces, %cpu, level start, info command.
+sleep 500 & - procces in backround
+ps -eo user,pid,nice,comm | grep sleep   -   viev procces sleep
+nice sleep 600 & - luvel dovn prioryty 50%
+nice -n 19 sleep 600 &  - -n 19 nim prioryty
+nice -n -20 sleep 600 & - -n -20 max prioryty
+renice 5 -p 2572 - change prioryty for procces 2572
+rnice 15 -u vova - change prioryty for user vova
+nohup sleep 1000 & - warranty working procces(working procces after exit in system)
+pstree - tree procces
+
+GREP
+
+
+pgrep - (command used only + -keys)
+pgrep sleep - view id procces
+pgrep sleep -l - view id proccces and nsme proces
+pgrep -u vova -l - view procces user vova list
+pkill test - kill all test procces
+top - task menager (TOP MANAGER)
+uptime - time working system
+free - memorynfo
+screen - open new tab in terminal (ctrl +a+d hidde window)
+screen -r - egain view window -re store
+grep - find
+grep,egrep,fgrep,rgrep=grep,grep -e,grep -r,frep -f
+grep oo file.txt - view oo text
+grep -n oo file.txt - viev number line 00 text
+grep -i boo file.txt - find (no parametrs) boo in file.txt
+ls | grep ile - > file.txt , file2.txt - list files>find in list
+grep ^xxx file.txt - find start line xxx
+gerp xxx$ file,txt - find end line xxx
+grep .o  file.txt - finx xxo
+egrep '^(b|d)' file.txt - шукати в початку рядка з букви  B or D in file
+egrep '^[a-k]' file.txt - find word a-k
+egrep '^([a-k]|[A-K])' file.txt - find
+fgrep - fast find simbols(без умов)
+rgrep - find all catalog
+sed -e 's/oo/aa/' file.txt - всі оо замінив на аа в файлі.(файл не редагується тільки видача команди)
+sed -e 's/oo/aa/' file.txt >newfile.txt - output results newfile.txt
+sed -re 's/^(B|b)/C/' file.txt - change B,b > C in text file
+

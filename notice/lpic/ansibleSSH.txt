@@ -1,0 +1,163 @@
+CentOS.
+ yum update
+ yum install epel-release
+ yum instal ansible -y
+ ansible --version
+
+
+Linux 
+ sudo apt-add-repositiry ppa:ansible/ansible
+ sudo apt-get update
+ sudo apt-get  instal ansible -y
+ ansible --version
+
+
+ANSIBAL MASTER
+
+ apt-get update
+ apt install ansible -y
+ Ansible -- version
+ ansible all -m ping.     -   ping connected servers.
+ ansible-inventory --list
+
+PYTHON 
+
+ python --version
+ update-alternatives --install /usr/bin/python python /usr/bin/python3 2.      [Змінюєм актуальну версію пайтон на пайтон3 з пріорітетом 2]
+
+
+SSH  only 22 port
+
+ service ssh status
+ service ssh start
+ (cat /etc/passwdl)show users
+ uname -a
+ w     -show users 
+ cd /etc/ssh/ssh_config - confige file
+
+ (StrictModes no)   
+ (AuthorizedKeysFile .ssh/authorizet_keysl)
+ (PubKeyAuthentication yesl)
+ Service ssh restart
+
+USER ADD
+
+ useradd -m -b /bin/bash/vova.    - add user.  -m  home directory
+ passwd vova 
+ #xxxx
+ #xxxx
+
+
+NEED APPS
+ sshpass,
+ Ancible master   - maybe needed
+ PuTTY.  
+
+ANSIBLE COMMAND
+
+ ansible all -m shell -a "uptime"   -- SHELL COMANDS uptime all servers
+ ansible all -m copy -a "src=privet.txt dest=/home mode=777" -b -- copy file privet.txt on all servers, chmod 777, -b root permis
+ ansible all -m shell -a "ls -la /home"    -- ls all servers
+ ansible all -m file -a "path=/home/privet.txt state=sbsent" -b --remove privet.txt all servers
+
+YAML  (правила формата ямл)
+
+---
+ - fruits:
+   - orange
+   - apple
+   - mango
+ - vegetables:
+   - carrots
+   - cucumbers
+
+ -vova:
+   -nick: vov4u4
+   -position: developer
+   -skils:
+     - python
+     - asw
+     - php
+...
+- kolya: { nick: kolyan, position: administrator, skills: killer }
+
+##########################################centos dont work
+
+vova@D14:/etc/ansible$ cat hosts 
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+# Ex 1: Ungrouped hosts, specify before any group headers:
+
+## green.example.com
+## blue.example.com
+## 192.168.100.1
+## 192.168.100.10
+
+# Ex 2: A collection of hosts belonging to the 'webservers' group:
+
+## [webservers]
+## alpha.example.org
+## beta.example.org
+## 192.168.1.100
+## 192.168.1.110
+ 
+#ansible_user='vova'
+#ansible_become=yes
+#ansible_become_method=sudo
+
+[all:vars]
+ansible_user=vova
+ansible_become=yes
+ansible_become_method=sudo
+ansible_become_pass=0905
+ansible_python_interpreter=/usr/bin/python3
+
+[servers]
+Sweb ansible_host=192.168.0.42      ansible_user=vova
+Sweb1 ansible_host=192.168.0.190    ansible_user=vova
+Sweb2 ansible_host=192.168.0.241    ansible_user=vova
+Sweb3 ansible_host=192.168.0.211    ansible_user=vova
+docker ansible_host=192.168.0.236   ansible_user=vova
+
+# If you have multiple hosts following a pattern, you can specify
+# them like this:
+
+## www[001:006].example.com
+
+# Ex 3: A collection of database servers in the 'dbservers' group:
+
+## [dbservers]
+##
+## db01.intranet.mydomain.net
+## db02.intranet.mydomain.net
+## 10.25.1.56
+## 10.25.1.57
+
+# Here's another example of host ranges, this time there are no
+# leading 0s:
+
+## db-[99:101]-node.example.com
+
+##########################################3
+
+vova@D14:/etc/ansible$ cat ansible.cfg
+# Since Ansible 2.12 (core):
+# To generate an example config file (a "disabled" one with all default settings, commented out):
+#               $ ansible-config init --disabled > ansible.cfg
+#
+# Also you can now have a more complete file by including existing plugins:
+# ansible-config init --disabled -t all > ansible.cfg
+
+# For previous versions of Ansible you can check for examples in the 'stable' branches of each version
+# Note that this file was always incomplete  and lagging changes to configuration settings
+
+# for example, for 2.9: https://github.com/ansible/ansible/blob/stable-2.9/examples/ansible.cfg
+

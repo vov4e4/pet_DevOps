@@ -1,0 +1,35 @@
+cat etc/passwd
+less etc/passwd
+getent passwd       -+
+  1. Username
+  2. The encrypted password (represented by x, located in the /etc/shadow file)
+  3. User ID number (known as UID)
+  4. User group ID (known as GID)
+  5. User full name
+  6. User home directory
+  7. The login shell (by default set to bin/bash)
+
+Now that you have sudo, to change user you have to run this command
+sudo -u <user> -s  
+As you can see, you also inherit the environment variables when you use this command.
+In order to launch a command as another user, you can also append a command to the sudo command.
+sudo -u <user> <command>
+For example, to change a user password, you would run
+$ sudo -u john passwd
+Changing user password for user john
+Current password:
+New password:
+Retype new password:
+passwd: all authentication tokens updated successfully.
+
+1.BREAK PASSWD UBUNTU (grub)
+ GRUB push >E 
+  #####
+  #####
+  linux /boot/#####/ro/#####/noprompt quiet    >
+  linux /boot/#####/rw/#####/rw init=/bin/bash
+PUSH >F10
+  root@(none):/# mount | grep[                   
+  root@(none):/# passwd vova
+  root@(none):/# reboot -f
+2.break rasswd

@@ -1,0 +1,113 @@
+https://panjeh.medium.com/cleaning-up-git-github-repository-without-deleting-git-directory-c86b7415b51b
+
+
+ GIT  (git repository ITNOTION) 
+ git config --system --list
+ git config --global --list
+ git config --global email addr "name@gmail.com"     -conf work invirement
+    ###    git config --global user.email "vov4e4@gmail.com"   #-analog
+    ###    git init
+    ###    git remote add origin https://github.com/vov4e4/ITNOTION.git
+ git config --global user.name "name"                - conf work invirement
+ git config -l                                       -check config git (cat home/vova/.gitconfig)
+ 
+ COMMIT
+ 
+ git status
+ echo "xxx" > filexxx.txt  ------create file
+ git status
+ git add .   ---------- stagent ---- send status to commit
+ git commit -m "Added filexxx.txt"    -------create commit
+ (git pull origin main)- якщо нейде пушш то стягє з гіта для порівняння.
+ git push origin main        ----all commits send on server
+ git log -2                  ----check 2 commits
+ git log                     ----check all commits
+ git log -1 -p               ----show shanges in commite
+ git checkout -- <name file> ----do not change comite
+ git diff --staget           ----show log file under push to git repository
+ nano .gitignore             ----ignore file and dir "<*.file   
+                 (cat home/vova/.gitignore)              dir/
+                                                         file.txt>"
+
+# Git commands
+ git commit --amend - дописати зміни (редагувати назву попереднього комміта) добавляє зміни із стейджингу в побередньосьаорений коміт
+ git log - логування! історія комітів.
+ git diff --staged 
+ git diff - wiev diferent
+
+DELETE BRANCH
+ git checkout --orphan newBranch
+ git add -A  # Add all files and commit them
+ git commit -am "Clean Repo"
+ git branch -D master    # Deletes the master branch
+ git branch -m master    # Rename the current branch to master
+ git push -f origin main # Force push master branch to github
+
+ADD BRANCH
+ git branch master     ----create master branch
+ git branch -b master  ----create and select brunch
+ git branch            ----show all branch
+ git checkout master   ----select master brunch
+ git branch -d master  ----delete branch master
+      other commands 
+      git branch test
+      git checkout test
+      git checkout -b test 
+      git marge test
+      git branch -d test
+      git branch -D test
+ПОВЕРНЕННЯ ДО ПОПЕРЕДНЬОЇ ВЕРСІЇ
+  git log    >>>>copy ID needed commit
+  git checkout "<ID commit>"
+  git commit --amend     -----shange (redact) name version
+  git reset --hard HEAD~2  ---delete last 2 comite
+  git reset --hard HEAD~  ---delete last comite
+  git reset --soft HEAD~2  ---delete last 2 comite  ?????
+
+
+create ssh key for GIT
+  ssh-keygen -t rsa -b 4096 -C "vov4e4@gmail.com"      -create key with email
+  cat ~/.ssh/id_rsa.pub                                -copy key in git settings
+
+  git config --global --add safe.directory /media/vova/dad8e409-1ca3-455d-95d6-69439c87944a/vova/ITNOTION  -дав права папкам докер і дженкінс. запропонувало цю команду
+
+GIT PROBLEMS
+git reset --hard   -Everything up-to-date
+
+…or create a new repository on the command line
+  ((((git init .    -create database git (in directory)))))
+  git init
+  git commit -m "first commit"
+  git branch -M main
+  git remote add origin https://github.com/vov4e4/DLQS.git
+  git push -u origin main
+  git remote -v      ----show link for git transfer
+  git remote set-url origin git@github.com:vova/ITNOTION.git    ------shange url https to ssh
+
+…or push an existing repository from the command line
+  git remote add origin https://github.com/vov4e4/DLQS.git
+  ((((git remote set-url origin https://github.com/vov4e4/DLQS.git    -rewrite))))
+  ((((git remote rm origin))))  -if error (error: src refspec main does not match any)
+  git branch -M main
+  git push -u origin main
+
+
+git reset --hard 
+
+
+Git Connect repository
+
+sudo apt update
+sudo apt upgrade -y
+git clone https://github.com/vov4e4/pet_DevOps.git
+git clone https://github.com/vov4e4/ITNOTION.git
+git init
+git remote add origin https://github.com/vov4e4/ITNOTION.git
+git remote set-url origin https://github.com/vov4e4/ITNOTION.git
+gh repo clone REPOSITORY
+gh repo clone https://github.com/vov4e4/ITNOTION.git
+git clone https://github.com/vov4e4/ITNOTION
+git status
+git config --global user.email vov4u4@gmail.com
+git config --global user.name vov4e4
+sh git.sh 

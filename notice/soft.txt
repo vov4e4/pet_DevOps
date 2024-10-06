@@ -1,0 +1,60 @@
+       SOFT
+PROCCES
+
+   kill chrome - close chrome
+   kill firefox
+   kill 1111 - kill number procces
+   killall test - kill process only usser.(kill test - kill procces admin)
+   top  -  all open process
+   htop - task manager
+
+INFO COMMANDS   
+   vmstat -  info memory, cache,buff,free
+   history - view history commands
+   du -sh
+   du -sh Desctop/   -  memory ???
+   top  -  all open process
+   sudo netstat -tvlpn
+   htop - task manager
+   cat /proc/meminfo - mem info
+   ls *.txt  - view all files .txt OR ls *.t* OR ls*.t?t all format ,,t,,
+   ls [1-3].txt - view 3files .txt
+
+
+SERVICE
+   service --status-all
+   ls /etc/inid.d          -service dir
+   sudo systemctl enable service-name
+   sudo systemctl disable service_name
+   sudo systemctl start service_name
+   sudo systemctl disable service-name
+   systemctl list-units --all --type=service --no-pager                    -show all service
+   systemctl list-unit-files --no-pager
+   systemctl list-unit-files --no-pager | grep service-name
+   systemctl list-unit-files | grep enabled
+   systemctl list-units --all --type=service --no-pager | grep running
+   systemctl --type=service --state=running
+   mariadb --help | grep -A1 'Default options'    -link for confige file
+
+   sudo dpkg --get-selections                 -show inslalling packege
+   sudo dpkg --get-selections | grep chrome   -find instaling pakege install
+   sudo apt list --installed | grep "chrome"
+   sudo apt list --installed | grep chrome
+   chconfig nginx on                          -runing nginx all time
+
+sudo apt-get instal,update, upgrade, remove
+env - вивод переменних среди
+cat /etc/passwd - view OBOLOJKA/.bin/bash
+export - задача переменной
+unset - отключений переменной
+PATH=$PATH:. - !!! add directory in home or vova or more inne directory. 
+ls *.txt  - view all files .txt OR ls *.t* OR ls*.t?t all format ,,t,,
+ls [1-3].txt - view 3files .txt
+whotis vim - whotis textREDACTOR
+man history
+man -k http
+exec - privilege comand x-full access
+ls | cpio -o > ../test.cpio - (create archive test.cpio) 
+cpio -id  - unpackeg
+
+

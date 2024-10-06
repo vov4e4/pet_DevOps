@@ -1,0 +1,141 @@
+
+    ALL   RANDOM
+
+
+du -h -max - info fail in directory 
+ping google.com  -  pinging
+ps aux  -  info (unknown for me)
+alias www=www - change value www.
+tree - tree directory
+uname -a - short info
+uptime - time working
+greep -v -n main coding.c - - search main????
+shutdown now,reboot,reset, other understang commands
+
+        SETTING BASH  SHELL
+        
+        
+/etc/skel  -  central directory  for new users
+/etc/skel$ sudo mkdir Desktop
+/etc/skel$ sudo vi Desktop/README.TXT - create readmi only new user
+
+.bashrc
+  alias ls='ls --color=auto'
+  #alias dir='dir --color=auto'
+  #alias vdir='vdir --color=auto'
+  
+    MANUAL BASH
+
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+  alias ll='ls -alF'
+  alias la='ls -A'
+  alias l='ls -CF'
+  
+      ПЕРЕМЕННИЕ
+      
+rc=" its my hobbies"
+echo $rc > its my hobbies
+exsport rc - for all terminales in root console.
+gnome-terminal - new terminal (no wkladka)
+cat .profile - my profile (for correct profile (and peremennaja)
+uptime - time working(/usr/bin/uptime)
+
+ CREATE BASH SCRIPT             (cd /home/vova/code) - working command
+ 
+ touch code - create code      create file code
+ chmode +x - access            access
+ vi code                       open vi for correct
+ #!/bin/bash                   linc code
+ date                          command
+ uptime -p                     command
+(esc):wq                       end save  
+
+     PATH
+     
+ PATH=$PATH:/home/vova/code     - code
+ SCRIPT IN BUSH
+ #!/bin/bash
+ # Question Script
+ echo "Are you hungry"
+ read VALUE
+ if [ $VALUE="YES" ];
+ then
+ echo "Make some dinner"
+ alse
+ echo "Continue working!!!
+ (esc :wq)
+ chmod u+x ifscript1
+ ifscript1 - not evenable
+ ./ifscrept1 - worcing
+ 
+ ls -l /bin/ping  -  утилта для связи с другими узлами (c правами владельца) низькорівневий доступ!
+ 
+ chmod u+s ifscript1 -  права власності для усіх юзерів!
+ chmod u-s ifscript1 - not root -s
+TEST command
+test -x ifscript1  -  перевірити чи є доступ до ifscript
+echo $? - вивод позитивний запит чи негативний zerro or one $$$$  в переменних
+&& - виконається якщо результат позитивний 
+ | - продовжує наступну команду
+ || - 
+
+TASK MANAGER
+cron  -  task command
+sudo vi /etc/crontab   -  view file
+ <<<minyte hour date month day-week user task>>>
+ 05 15 *** - ewery day or 15:05
+ 05,40 **** - on 5 and 40 minyte every hour
+ crontab -l - task for user vova
+ crontab
+  00 08 * * 1-5 /user/bin/drweb/scaner/ -scan -all   - (example command)
+  ls /var/spool/crontabs  -  view task
+ sudo vi /etc/crone.deny    -   create file crone(list deny user)vi (vova) :wq  - no root using task manager
+  sudo cp /etc/crone.deny /etc/cron.allow 
+  (((prioryty allow value in root)))
+ANACRON
+   vi /etc/anacrontab - file utilite (interval task one day)
+   ls -l var/spool/anacron - catalog task
+    cd /etc/cron.dayly 
+    ls -l
+    
+    touch script
+    chmod +x script
+    at 17:00
+    at> /home/vova/script
+    at> <EOT>
+    atq - view task 
+    at naw +15 minytes 
+    at 15:00 01/09/2022 
+   atrm 1  -  remove task
+LANGUJE SYSTEM
+$LANG - general setting   
+ env - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+ env | grep LANG - 
+ 
+ tzselect - time zone
+ date - 
+ sudo date 04251001988  -  change date and time
+ cat /etc/timezone
+ sudo hwclock - hard wear clock 
+ hwclock
+ etc/adjtime - in directiry
+ sudo hwclock --set --date="01/01/2022 12:00" - set date and time (only sudo hwclock)
+ sodo hwclock -w - sinhronize clock hsrdweare in world time UTC
+ sudo hwclock --localtime -w - set cloc timezone
+sudo ntpdate 0.ru.pool.ntp.org - sinhronize tame in server
+
+
+
+
+
+
+
+
+
+
+
+
+
+

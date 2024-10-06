@@ -1,0 +1,39 @@
+https://linuxize.com/post/install-java-on-raspberry-pi/
+
+Виконайте такі команди, щоб встановити OpenJDK 11 JDK на Raspberry Pi:
+  sudo apt update
+  sudo apt install default-jdk
+  java -version
+Якщо у вашій системі є декілька інсталяцій Java, можна вибрати версію Java для 
+використання за замовчуванням.  Для цього виконайте таку команду.
+  sudo update-alternatives --config java
+  sudo update-alternatives --config javac
+  sudo update-alternatives --config javaws
+
+Installing Jenkins on your Raspberry Pi
+  sudo apt update
+  sudo apt upgrade
+  sudo apt install openjdk-11-jre
+  java --version
+  curl https://pkg.jenkins.io/debian/jenkins.io.key | gpg --dearmor | sudo tee /usr/share/keyrings/jenkins-archive-keyring.gpg >/dev/null
+  sudo nano /etc/apt/sources.list.d/jenkins.list
+    deb [signed-by=/usr/share/keyrings/jenkins-archive-keyring.gpg] https://pkg.jenkins.io/debian binary/
+  sudo apt update
+  sudo apt install jenkins
+
+
+INSTALL DOCKER
+https://linuxize.com/post/how-to-install-and-use-docker-on-raspberry-pi/
+
+
+
+
+
+
+
+
+
+
+
+
+

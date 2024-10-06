@@ -1,0 +1,15 @@
+ sudo apt-get autoremove
+
+sudo systemctl stop mysql
+sudo apt-get remove --purge mysql-server mysql-client mysql-
+
+sudo apt-get autoclean
+sudo rm -rf /var/lib/mysql/
+sudo rm -rf /etc/mysql/
+
+sudo apt-get purge mariadb-server 
+sudo dpkg -l | grep mariadb 
+
+
+
+

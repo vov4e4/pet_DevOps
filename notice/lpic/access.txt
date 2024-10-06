@@ -1,0 +1,26 @@
+ACCESS
+
+ r = 4
+ w = 2
+ x = 1
+ rwx - 7    user-group-other
+ rw  - 6
+ r-x - 5
+ -wx - 4
+ -w- - 2
+ --x - 1
+ --- - 0
+  chmode +x file.txt 
+  chmod -R 777 /media/vova/soft -       ------   full access in hdd
+  chmod 777 xxx.txt - full permission
+  chmod 666 xxx.txt - RW permission
+  chmod 744 -access user and read in network
+  chmod 700 xxx.txt - access admin
+  chmod 644,640,444,755,505, other access. 
+  rwx -level permission/ R-read. W-write. X-xecute
+  chmode r,w,x+u,g,o file.txt   -  chmode reed,write,execute for user,group,other. LEVEL ACCESS
+
+
+
+
+

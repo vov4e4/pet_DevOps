@@ -1,0 +1,66 @@
+GIT
+
+  ls -al ~/.ssh       -show key
+  ssh-keygen -t ed25519 -C "your_email@example.com"    -genering new key
+  ssh-add ~/.ssh/id_ed25519    - adding key in ssh client
+  cat ~/.ssh/id_ed25519.pub    - reed openssh key
+
+SSH /
+ sftp://pi@192.168.0.100 -connect with explourer
+ sudo scp -r * vova@192.168.0.101:~/docker/lamp    -copy all files to ssh at 192.168.0.101
+ cat key.pub | pbcopy    -copy key in cache
+
+  sudo apt-get install openssh-server
+  sudo service ssh status    
+  ssh vova@192.168.0.104 -p22
+
+Change port ssh
+  sudo systemctl status ssh
+  sudo netstat -tulnp | grep ssh
+    #System/well know 0-1023
+    #user/registered 1024-49151
+    #dynamic/private 49152-65535
+  nano /etc/ssh/sshd_config
+    #uncoment port >
+    Port 12345
+  sudo nano /etc/services
+    #change file
+    ssh 22/tcp > ssh 12345tcp
+  sudo ufw status
+  sudo ufw allow ssh
+  sudo ufw status
+  sudo systemctl restart sshd
+  ifconfig   (show ip addr)
+  ssh vova@192.168.0.100 -p 12345
+
+  sudo systemctl enable ssh
+
+   /etc/ssh/sshd/config         - scange port  (ans restart sshagent)
+   sudo -p 123456               - change port
+   /etc/ssh/ssh_host_rsa_key    - key direct
+   /etc/ssh/ssh_host_ecdsa_key
+
+SSH SERVER CONNECT NO PASSWD
+ ssh-keygen -t rsa      -generate ssh keygen  
+ cd ~/.ssh/             -
+ cat id_rsa.pub         - copy key
+ ssh-copy-id -i ~/.ssh/id_rsa.pub vova@192.168.0.105  -kopy pingerprint key in 105
+ ssh vova@192.168.0.105
+ sudo vi /etc/hosts     -DNS
+
+iptables
+
+  sudo iptables -A INPUT -s 192.168.0.104 -p tcp --dport 123456 -j ACCEPT
+  sudo iptables -A INPUT -p tcp --dport 123456 -j DROP     (- connect sshagent only my ip addr)
+
+  sudo ufw allow ssh 		ssh no firewal
+
+
+OPEN VISUAL INTERFACE APPS
+  ssh -X vova@192.168.0.100
+  vova@pi$ chrome
+
+
+
+APPS 
+  Fail2Ban                    - apps protect BroadForce and Ddos

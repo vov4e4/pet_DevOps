@@ -1,0 +1,94 @@
+FILE SYSTEM EXTENTED - LINUX FAIL SYSTEM
+
+df - info memory (1kb)
+df -h - info understand
+df -i 
+du - disc usege
+du -h  /home/vova/* - 2 folder
+du -h -summarize - only mpw directory
+df -i - inode
+ls -i -number inode
+fsck /dev/sdb1- file system chek
+fsck -t ext4 /dev/sdb1
+unmount /mnt/hard
+fsck -t ext4 /dev/sdb1
+
+xsf_check /dev/sdb1
+xsf_repair /dev/sda1 - search breack fail system
+mount /dev/sdb1 /mnt/hard - sdb1 in folder hard
+xsf_info - info sdb1 
+xsf_metadump /dev/sdb1 dump.db - rezerv vopy sdbq
+:/mnt/hard# debugfs -w /dev/sdb1 - 
+debugfs - отладчик файлових систем
+lsdel - list deleted files
+undel <12> test.txt - undeletet file test.txt
+dumpe2fs /dev/sdb1 - info sdb1
+dumpe2fs /dev/sdb1 >file.txt
+umount /dev/sdb1 - mount patrition
+mke2fs -t ext2 /dev/sdb1 - create patrition
+dumpe2fs /dev/sdb1 | greep features  - 
+tune2fs -o has_joutnal /dev/sdb1 - создание журнала
+tune2fs -o ^has_joutnal /dev/sdb1  - deletet jyrnale
+tune2fs - configure file sistem - 
+
+    КВОТИ ЛІНУКС
+sudo apt-get install quota - install soft  
+sudo vi /etc/fstab  
+/dev/sdb1	/mnt/hard	auto	rw,user,auto,usrquota,grpquota
+розділ  	в папку	     фай.систм. чит,зап.корист,користквота,і груповаквота
+quotaoff /mnt/hard
+quotacheck - cug /mnt/hurd - create quota for user group in hurd directory
+ sudo edquota -u vova - correct quota for user vova
+sudo edquota -t  - correct quota 
+sudo quotaon /mnt/hard - on quota in hard directory
+sudo chown vova:root /mnt/hard - new admin directory hard
+touch /mnt/hard/file.txt - create file.txt in hard directory
+sudo edquota -u vova - info quota
+vi /mnt/hard/file.txt - correct file.txt
+warnquotta  -  email quotta avtoemail
+    ПРАВА ДОСТУПА.
+id vova - info user
+chown vova file.txt - change owner file.txt
+chgrp testers file.txt 
+chown -R vova folder - change owner in directory
+sudo chmod ugo-x file.txt - no execute for user group and other
+sudo chmod u+x file.txt - execute for user
+sodo chmod 640 file.txt
+sudo chmode 777 file.txt
+ls folder/
+ls -l fiew root (-l)
+chmod u-x folder - no root for user no execute
+chmod u+x folder (764 code)
+grep umask /etc/profile - incognito status profile
+grep UMASK /etc/login.defs - 
+umask 075
+sudo chmod u+s file.run - add suid bite (only open file root admin)
+sudo chmod 2666 (4777) file.run - 
+sudo chmod u-s file.run - ^for all users ^
+sudo chmod g+s file.run - for group
+stat file.run - statistic file
+chmode g+s (1666)(3666) Folder/
+ su -l andrey - change user
+ whoami - name user in system
+ chmod o+t folder/ - add stykky bytes
+    LINCS HARD and SOFT
+ls -li - list -listinodes
+echo Hello >> file.txt  - >> ДОПИСАТИ
+mv file.txt newfile.txt - rename file
+rm -fr * - remove all in folder
+ln file.txt hard.txt - create hard linc in file
+ln -s file.txt soft.txt - create soft linc
+find / -name mail - find root directory all results post
+locate mail - find mail (all resoult) fast 
+sudo updatedb - update baze date 
+which ls - 
+/bin/ls -
+type ls -  color avto
+wherels ls - 
+
+
+
+
+
+ 
+

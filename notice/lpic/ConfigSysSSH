@@ -1,0 +1,92 @@
+cat /etc/hosts - file IP and info
+
+sudo vi /etc/hostname   ---  rename PC
+sudo resolvconf -u  - 
+ctrl  +l   - clear
+sudo ifdown (name local card) - interface down! off local
+sudo if up (name local card)  -  up loccal card
+sudo ifconfig (name card) 192.168.0.101  -  name IP for local card
+ifconfig - show IP address
+route   -  show marsrute
+sudo service networking restart  - reset network
+sudo route del default - delete rout default
+ip addr - show ip address
+flush = DELETE(clear)
+
+host google.com  -  network google.com(ip ping)
+dig google.com   -  network DNS
+ping google.com -  (cntrl+c stop ping)
+ping google.com -c 10 > google.ping  -  pind 10 lines for web google
+ traceroute google.com - tracer network
+netstat -tu   ----- network statistick. (all packege)
+netstat -ntu ---- statistick ip and number value
+
+
+++++++++++
+<<<nc -v www.google.com 80   --   connect 80 port
+netcat >>>
+nc -l -v -p 123456 -------- connect watching channel.
+nc -v -n -z -w 1 10.0.1.1 50-100   -----v-verboust-n-noDNS-zopen port or no-w-tineout 1 sec. 50-100 scan port.
+/etc/nsswitch.conf   --  file configyre DNS
+getent hosts  -  
+getent host google.com - 
+
+SUPER USER BIT, GROUP
+
+sudo find / -perm -u+s   ---- find or all system  permissions   user + super user id bit
+sudo find / -user root -perm +4000  --  find file root user
+sudo find / -perm -g+s ----
+rwSr-xr-x  - super user id bit
+
+ CREATE AND work time accaunt FOR USER
+ sudo useradd vova  ---
+ sudo passwd vova   ---
+ sudo cat /etc/shadow    --- view catalod pasword
+ sudo usermod -L  vova   --- -L lock user
+ sudo mkhomedir_helper vova  ---utilita for create root directory in user accaunt
+ sudo chage -l vova    --- list info vova
+sudo chage vova  --- setting account !!!!
+ulimit -a  -  limited user
+ulimit -f 0  --- unlimited files 0Kb (only seance)
+sudo vi /etc/security/limits.conf  ----file security
+su - administrator root
+sudo - super uder 
+exit - exid on terminal
+su -c 'vi ./etc/resolv.conf' -  от имени суперюзера виполнение команди
+sudo visudo - !!!!!!!!!!!!
+cat /etc/group | grep sudo  ---  подивитись хто має супер юзер
+sudo -K --- clear password on kesch
+sudo -s ---- home catalog ~ (tilda)
+su     ---- home catalog root
+lsof - search command individual procces
+fuser - search procces to wirk in file
+w --- all user info
+who -b,who -qH,who -uH, who -aH,
+sudo lastb    --- неудачні спроби входу
+sudo touch /etc/nologin   ---warning--- після створення файлу ніхто неможе зайти в систему окрім суперюзара
+sudo nmap localhost   -   view host
+
+SSH
+ssh admin@192.168.0.1    ---- ip adress server(lig in)
+exit --- exit server
+ssh-keygen -t rsa - create key
+ssh-keygen -t dsa - create key
+ssh copy-id -i .ssh/id_rsa.pub admin@192.168.0.0 ----send key in server 
+ssh-agent bash ---
+ssh-add .shh/id_rca----
+ssh admin@192.168.0.0
+sudo ssh-keygen -t rsa -f /etc/ssh/ssh_host_rca_key ----- create key open class and close key.
+scp file.txt 192.168..0 :/home/vova    ---- copy file to server
+gpg --gen-kyy   ----  generation key
+ls .gnupg - --- view key
+gpg --list-key ----
+gpg --export vova > gpg.public  -----
+
+
+
+
+
+
+
+
+

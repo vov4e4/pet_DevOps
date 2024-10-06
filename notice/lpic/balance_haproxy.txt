@@ -1,0 +1,109 @@
+CENTOS 7
+
+
+haproxy working with TCP and Http servers [apashe]
+
+swich off, firewaldd, UFW, selinux, iptables
+sestatus
+vi /etc/sysconfig/selinux  ---SELINUX=disable
+/var/www/html              -directory fir index.htnl
+systamctl status firewalld -firewalld inactive
+yum -y update              -all machines
+yum install haproxy -you   -install
+
+vim /rtc/haproxy/haproxy.cfg
+  
+  frontend fr1 *:80
+        bind 192.168.0.110:80       -server general
+        default_backend be1         -rul [transfer for backend traffik]
+
+  backend be1
+          balance roundrobin        -50%-50% balanced
+          server server1 192.168.0.111:80
+          server server2 192.168.0.112:80
+          server server3 192.168.0.113:80
+
+systemctl restart haproxy            -END COMPLEAT.
+
+якщо сервер непрацює тоді всерівно балансировщик буде переадресовувати! 
+але є функція ---check---
+vim /rtc/haproxy/haproxy.cfg
+  
+  frontend fr1 *:80
+        bind 192.168.0.110:80       -server general
+        default_backend be1         -rul [transfer for backend traffik]
+
+  backend be1
+          balance roundrobin        -50%-50% balanced
+          server server1 192.168.0.111:80   check
+          server server2 192.168.0.112:80   check
+          server server3 192.168.0.113:80   check
+
+якщо балансувати різні сервери по потужності  ---weight---  -вага
+vim /rtc/haproxy/haproxy.cfg
+  
+  frontend fr1 *:80
+        bind 192.168.0.110:80       -server general
+        default_backend be1         -rul [transfer for backend traffik]
+
+  backend be1
+          balance roundrobin        -80%-10%-10% balanced
+          server server1 192.168.0.111:80   weight 80
+          server server2 192.168.0.112:80   weight 10
+          server server3 192.168.0.113:80   weight 10
+
+зі юзера буде відправляти на той ж сервер (щоб логіни юзерів невилітали)   ---cookie--- 
+vim /rtc/haproxy/haproxy.cfg
+  
+  frontend fr1 *:80
+        bind 192.168.0.110:80       -server general
+        default_backend be1         -rul [transfer for backend traffik]
+
+  backend be1
+          balance roundrobin        -80%-10%-10% balanced
+          server server1 192.168.0.111:80   cookie
+          server server2 192.168.0.112:80   cookie
+          server server3 192.168.0.113:80   cookie
+
+з списком юзерів
+vim /rtc/haproxy/haproxy.cfg
+  userlist http-userlist
+        user vova  insecure-passwodr 12345678    (незашифрований пароль)
+---echo -n '12345678' | md5sum---     (зашифрований пароль переданий в утіліту md5sum)
+(один з алгоритмів незворотнього шифрування)(authentification)
+
+
+  frontend fr1 *:80
+        bind 192.168.0.110:80       -server general
+        default_backend be1         -rul [transfer for backend traffik]
+
+  backend be1
+          acl AuthAccept htt_auth(http-users)                  -(acl acces control list)
+          http-request auth realm SeiteLocal if !AauthAccept   -(якщо не аутентифіковані тоді !окрім аутентифікованих)
+          balance roundrobin        -80%-10%-10% balanced
+          server server1 192.168.0.111:80   weight 80
+          server server2 192.168.0.112:80   weight 10
+          server server3 192.168.0.113:80   weight 10
+
+
+розбивка розділів на різні серваки
+vim /rtc/haproxy/haproxy.cfg
+  
+  frontend fr1 *:80
+        bind 192.168.0.110:80       -server general
+        acl url_admin path_beg /admin
+        use_backend be3 if url_admin
+
+        acl url_admin path_beg /cloud
+        use_backend be2 if url_cloud
+
+        default_backend be1
+
+  backend be1
+          balance roundrobin        -50%-50% balanced
+          server server1 192.168.0.111:80
+  backend be2
+          server server2 192.168.0.112:80
+  backend be3
+          server server3 192.168.0.113:80
+

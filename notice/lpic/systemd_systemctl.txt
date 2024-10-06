@@ -1,0 +1,92 @@
+service     -start, stop, restart 
+device      -
+target
+mount       -spot connection fail system
+automount
+timer       - analog crone
+sicket
+path
+slice       -tree
+shapghot
+
+systemctl list-units                       -show units (apps)
+systemctl list-unit-files
+systemctl list-units --all --state=active  -выведет список только активных юнитов
+systemctl list-units —type=service         -выведет список юнитов, которые являются сервисом.
+systemctl list-units -t target --all       -show target (apps)
+systemctl list-units -t service
+ —state — используется для определения состояния демона Load, Active, Sub
+ —type — позволяет фильтровать юниты по их типу.
+systemctl enable nginx.service             -команда добавит в автозагрузку веб-сервер nginx
+systemctl is-enable nginx                  - auto start nginx?
+systemctl status nginx                     -show nginx (apps) (strt stop restart enable disable)
+systemctl reload                           -restart settings (apps)
+
+systemctl enable --now nginx               -add enginx in autostart and start sevice
+systemctl disable enginx                   -swith off autostart 
+
+В моей практике встречались «вредные» сервисы, которые после удаления их из автозагрузки,
+все равно там оставались и запускались после рестарта ОС. Чтобы решить этот вопрос,
+можно замаскировать сервис:
+  systemctl mask nginx.service 
+  systemctl mask nginx                       -block starting nginx (unmask)
+Снять маску можно командой:
+ systemctl unmask nginx.service 
+
+Автозапуска скриптов и сервисов с помощью rc.local
+
+ Начнем с того, что файл /etc/rc.local должен быть исполняемым:
+  chmod +x /etc/rc.local
+ Rc.local должен быть добавлен в автозагрузку systemd:
+  systemctl enable rc-local
+ И на примере того же nginx, мы можем добавить в rc.local команду запуска веб-сервера:
+  service nginx start 
+К примеру, я создал скрипт /root/test.sh который выполняет некоторые действия,
+ и хочу запустить его сразу после запуска системы. Добавляем в файл rc.local строку:(#!bin/bash/)
+  sh /root/test.sh   
+
+Создание собственного демона и добавление его в systemd
+Вы можете создать собственный демон, которым можно будет управлять через systemd.
+Например, нам нужно запускать все тот же скрипт /root/test.sh после перезагрузки системы. Начнем с создания файла нашей будущей службы:
+
+ touch /etc/systemd/system/test-script.service
+ chmod 664 /etc/systemd/system/test-script.service
+ nano /etc/systemd/system/test-script.service
+
+  Содержимое файла будет следующее:
+[Unit]
+Description=Template Settings Service
+After=network.target
+[Service]
+Type=oneshot
+User=root
+ExecStart=/root/test.sh
+[Install]
+WantedBy=multi-user.target
+
+Основные параметры:
+ User – пользователь под которым будет запускаться демон
+ Type=oneshot — процесс будет завершен до запуска дальнейших юнитов
+ Проверяем и перезапускаем:
+  # systemctl daemon-reload
+  # systemctl start test-script.service
+  # systemctl status test-script.service 
+
+● test-script.service - Test
+Loaded: loaded (/etc/systemd/system/test-script.service; disabled; vendor preset: disabled)
+Active: active (running)
+
+Если вас устроило то, как работает сервис, добавьте его в автозагрузку:
+  # systemctl enable test-script.service 
+  Created symlink from /etc/systemd/system/multi-user.target.wants/test-script.service to /etc/systemd/system/test-script.service.
+Таким образом, вы можете добавить любой ваш скрипт в автозагрузку через systemd.
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+USER AND GROUP
+
+ vim /etc/password                    -info user and group
+ vim /etc/group                       -info
+  sudo vim /etc/shadow
+  sudo vim /etc/gshadow
+ sudo useradd -m -G sambashare buh    -add user, home directory, group sambashare, directory buh.
+  :!: - disable accaunt user! :*:     -no use for system
+ sudo password buh                    -and 2x veryficaate
+ password                             -change password for user my
+ sudo usermod -L buh                  -lock user accaunt 
+ sudo usermod -U buh                  -unlock
+ sudo usermod -s /bin/bash -c "my favorite" buh    -shell obolojka, and text
+ sudo userdel -r buh                               -delete user directory.
+ sudo groupadd -g                                  -id
+ sudo groupadd cloun                               -ceate group clouns
+ sudo usermod -aG cloun vova                       -addGROUP user vova
+ vi /etc/group                                     -vivew group 
+ sudo droupmod -g 25000                            -id user 25000
+ sudo groupdel cloun                               -del group
+ chage                                             -change age (vozrast)
+ chage -l vova                                     -change age value
+ sudo chage -E 2022-02-06 vova                     -end age vova accaunt
+  sudo chage -E -1 vova                            -rezet age vova accaunt
+ getend password - = vi, vim
+ getend shadow   - = vim,vi
+ getend password vova - info by user vova
+ getend group - 
+
+
+
+

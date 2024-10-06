@@ -1,0 +1,21 @@
+
+MINIKUBE
+
+    grep -E --color 'vmx|svm' /proc/cpuinfo     -check virtualisation
+    curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+  && chmod +x minikube                      -wget
+    sudo mkdir -p /usr/local/bin/               -create  
+    sudo mv minikube /usr/local/bin/            -move
+    minikube start --driver=virtualbox          -instaling of VM 
+    minikube status
+    minikube stop
+    minikube start
+KUBECTL install and confiqure
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    sudo mv kubectl /usr/local/bin/
+    sudo chmod +x kubectl 
+    kubectl version --client
+    kubectl get nodes
+    kubectl get pods --all-namespaces
+
+

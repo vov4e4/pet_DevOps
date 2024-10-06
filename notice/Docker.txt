@@ -1,0 +1,180 @@
+-d   -detouch mode (незаморожувати вікно терміналла)
+
+ docker pull ubuntu
+ sudo docker run -it --name MyUbuntu ubuntu
+ 
+sudo docker run -it ubuntu bash
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+ADD USER DOCKER GROUP 
+  sudo groupadd docker
+  sudo gpasswd -a $USER docker
+  docker run hello-world  -check
+
+  V2 22.03.24
+  sudo groupadd docker
+  sudo usermod -aG docker $USER          #add USER
+  newgrp docker
+  docker run hello-world                #reg sudo user
+
+  V3 22.03.24
+  sudo usermod -aG docker USER           #add User
+  cat /etc/group                         #view users
+
+   docker --version
+   docker pull xxx  -push images із репозиторію докерів
+   docker run -it -d xxx  -созданиe контейнера из образа
+   docker run -it ubuntu  -in conteiner
+   docker ps  - show runing containers
+   docker ps -a | docker container ls      -show all containers
+   docker exec -it <container id> bash  -accses runing containers
+   docker stop <container id>
+   docker start <container id>
+   docker kill <container id>
+   docker commit <conatainer id> <username/imagename>  - новый образ редактируемого контейнера в локальной системе.
+   docker login  -войти в репозиторий докер-хаба
+   docker push <username/image name>  - send image in docker hub
+   docker images
+   docker rm <container id>
+   docker rmi<image-id> -delete image
+   docker build <path to docker file> создания образа из указанного файла докера.
+   docker inspect hello-world - show ip conteiner  (172.17.0.1234)
+   docker rm $(docker ps -qa) - delete all containers 
+  $(docker ps -qa)           -show all ID conteiners
+   docker run --name hello -d --rm hello-world - auto remove container after work
+   apt search docker-ce        - find repositiry docker
+   apt search docker
+     #docker login             -send images for dockerhub
+
+
+
+docker tag rancher/cowsay cow -rename image rancher/cowsay > cow
+docker run -p "127.0.0.200:80:8080" -d --name cow public.ecr.aws/c7o8u9c1/cowsay-ecr  -rename ip adddr and port
+>>>   docker exec -it cow sh   -open browsing conteiner (ls,cat,ip a)
+docker logs db1          -lods
+docker logs -n 2  db1    -last 2 logs
+docker logs -t db1       -logs time
+docker logs -f db1       -logs follow (online)
+docker container inspect db1 
+docker ps --format "table {{.ID}}\t{{.Names}}\t{{.ports}}"
+docker image prune -a    -delete all images
+
+sudo usermod -aG docker $USER --- only sudo = cat /etc/group
+sudo docker run hello-world
+sudo docker images
+sudo docker search apashe
+sudo docker pull apashe
+sudo docker ps  -  container runing
+sudo docker ps -a  - all conteiner 
+sudo docker run -it -p 1234:8080 apache - переадресація портів
+sudo docker run -d -p 1235:8080 apache - 
+sudo docker run -d -p 1236:80 nginx
+
+ DB MONGO
+  sudo docker run -P -d --name db1 mongo    #port/auto, conteiner/backround mode, rename image/mongo>db1
+  sudo docker port db1                      #show port container for db1
+  mongosh "mongodb://0.0.0.0:49153"         #edit database mongo
+  psql -h 0.0.0.0 -p 49153 -U mongodb -W    #connect for DB with client
+  docker stop db1                           #stop conteiner
+  docker start db1 
+  docker exec -i -t db1 bash                #ip image db1 :/#
+  docker exec -it db1 bash
+  mongosh "mongodb://0.0.0.0:49154          #input source db1 >
+  
+
+sudo docker rm xxxxid contenerxxxx          #delete conteiner
+sudo docker rmi 
+
+Dockerfile
+
+ #docker file for docker
+ FROM ubuntu:20.04
+ RUN apt-get -y update
+ RUN
+ RUN apt-get -y install apache2
+ RUN echo 'Hello World from Docker!' >/var/www/html/index.html
+ CMD ["/usr/sbin/apache2ctl", "-DEFOREGROUND"]
+ EXPOSE 80
+
+  sudo docker build -t vova:vi . - build image <^
+  sudo docker run -d -p 7777:80 vova:v1 - konteiner
+
+   docker run -it node     -start node 
+   docker container prune  -delete stopet conatainers
+
+   DOCKER NETwORK
+  docker network create LANdocker
+  docker network ls
+  docker network connect LANdocker db  -connect db container in LANdocker lan
+  docker run -d \
+   > -p 8081:8081 \                     #old:new
+   > --network LANdocker
+   > -e ME_CONGIG_MONGODB_SERVER=db \
+   > -e ME_CONFIG_MONGODB_ADMINSERVERNAME=admin \
+   > -e ME_CONFIG_MONGODB_ADMINSERVERNAME=abc \
+   > --name mex \
+   >mongo expres
+
+DOCKER VOLUME 
+ volume ----/path/in/the/conteiner
+ docker volume create VOLUME
+ docker volume ls 
+ docker volume rm VOLUME 
+ directory volume > /var/lib/volumes
+castom directory
+docker -v /path/on/host:/path/in/the/container IMAGE  --
+--якщо файли в діректорії міняються вручну
+docker -v VOLUME:/path/in/the/container/ IMAGE
+--якщо файли в директорії міняються через контейнер(наприклад бази данних)
+echo "$(pwd)/app"
+
+
+
+https://docs.docker.com/engine/reference/commandline/app_list/
+
+https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes-ru
+
+     INSTAL DOCKER 07.06.22
+ 
+ sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+apt-cache madison docker-ce
+sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io docker-compose-plugin
+sudo docker run hello-world
+
+INSTALL DOCKER compose  
+  apt-get update -y
+  apt-get install docker-compose
+  sudo chmod +r /usr/local/bin/docker-compose
+  docker-compose --version
+  docker --version
+
+
+  INSTALL DOCKER FOR RASPBERRY PI 4
+  https://forums.raspberrypi.com/viewtopic.php?t=320769
+   sudo apt update
+   sudo apt install docker.io
+   docker -version
+   sudo docker run hello-world
+   sudo docker images
+
+   (remove DOCKER
+sudo apt-get purge docker-engine
+sudo apt-get autoremove --purge docker-engine
+rm -rf /var/lib/docker
+remove docker
+
+
+sudo docker exec -it some-mysql bash  - bash
