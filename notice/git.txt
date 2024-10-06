@@ -102,8 +102,8 @@ sudo apt upgrade -y
 git clone https://github.com/vov4e4/pet_DevOps.git
 git clone https://github.com/vov4e4/ITNOTION.git
 git init
-git remote add origin https://github.com/vov4e4/ITNOTION.git
-git remote set-url origin https://github.com/vov4e4/ITNOTION.git
+git remote add mein https://github.com/vov4e4/ITNOTION.git
+git remote set-url mein https://github.com/vov4e4/ITNOTION.git
 gh repo clone REPOSITORY
 gh repo clone https://github.com/vov4e4/ITNOTION.git
 git clone https://github.com/vov4e4/ITNOTION
